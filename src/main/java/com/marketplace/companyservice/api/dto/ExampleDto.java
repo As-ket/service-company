@@ -14,7 +14,7 @@ import java.util.UUID;
  */
 @Data
 @Schema(description = "Объект для представления")
-public class CompanyDto {
+public class ExampleDto {
 
     @Schema(example = "123e4567-e89b-12d3-a456-426614174000", description = "Уникальный идентификатор")
     private UUID id;
