@@ -4,11 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.UUID;
 
 /**
@@ -22,35 +18,36 @@ import java.util.UUID;
 public class CompanyInformationEntity {
     @Id
     @Column(name = "id")
-    private UUID id;    //    UUID пользователя
+    @GeneratedValue
+    private UUID id;
 
     @Column(name = "name")
     @NonNull
-    private String name;    //    название магазина
+    private String name;
 
     @Column(name = "rating", columnDefinition = "NUMERIC(5,2)")
-    private Double rating;    //  рейтинг магазина
+    private Double rating;
 
     @Column(name = "main_category")
     @NonNull
-    private String mainCategory;    //  основная категория товаров
+    private String mainCategory;
 
-    @Column(name = "picture")
-    private Byte[] picture;    //  картинка-аватарка магазина
+    @Column(name = "picture_id")
+    private UUID pictureId;
 
     @Column(name = "legal_name")
     @NonNull
-    private String legalName;    //  юр. название компании
+    private String legalName;
 
     @Column(name = "type")
     @NonNull
-    private String type;    //  тип организации
+    private String type;
 
     @Column(name = "inn")
     @NonNull
-    private String inn;    //  инн
+    private String inn;
 
     @Column(name = "is_active")
     @NonNull
-    private Boolean isActive;    //  призак работы
+    private Boolean isActive;
 }

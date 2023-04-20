@@ -8,28 +8,28 @@
         <sql dbms="postgresql">
             CREATE SCHEMA IF NOT EXISTS company;
         </sql>
-        <createTable tableName="company_information">
+        <createTable tableName="company_information" remarks="Информация о компании">
             <column name="id" type="UUID">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="name" type="VARCHAR(255)">
+            <column name="name" type="VARCHAR(255)" remarks="Название магазина">
                 <constraints nullable="false"/>
             </column>
-            <column name="rating" type="NUMERIC(5,2)"/>
-            <column name="main_category" type="VARCHAR(255)">
+            <column name="rating" type="NUMERIC(5,2)" remarks="Рейтинг"/>
+            <column name="main_category" type="VARCHAR(255)" remarks="Основная категория товаров">
                 <constraints nullable="false"/>
             </column>
-            <column name="picture" type="BYTEA"/>
-            <column name="legal_name" type="VARCHAR(255)">
+            <column name="picture_id" type="UUID" remarks="Картинка-аватарка магазина"/>
+            <column name="legal_name" type="VARCHAR(255)" remarks="Юридическое название">
                 <constraints nullable="false"/>
             </column>
-            <column name="type" type="VARCHAR(255)">
+            <column name="type" type="VARCHAR(255)" remarks="Тип организации">
                 <constraints nullable="false"/>
             </column>
-            <column name="inn" type="VARCHAR(255)">
+            <column name="inn" type="VARCHAR(255)" remarks="ИНН">
                 <constraints nullable="false"/>
             </column>
-            <column name="is_active" type="BOOLEAN" value="true">
+            <column name="is_active" type="BOOLEAN" value="true" remarks="Признак работы">
                 <constraints nullable="false" />
             </column>
         </createTable>
