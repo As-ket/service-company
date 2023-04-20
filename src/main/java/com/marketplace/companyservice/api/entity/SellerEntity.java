@@ -9,7 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.time.OffsetDateTime;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 /**
@@ -36,5 +36,5 @@ public class SellerEntity {
     private String email;
     @Column(name = "registration_date")
     @NonNull
-    private OffsetDateTime registrationDate;
+    private LocalDateTime registrationDate;
 }
