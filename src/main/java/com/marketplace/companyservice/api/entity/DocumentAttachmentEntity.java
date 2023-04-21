@@ -23,17 +23,15 @@ import java.util.UUID;
 public class DocumentAttachmentEntity {
 
     @Id
-    @NonNull
     @Column
+    @GeneratedValue
     private UUID id;
     @NonNull
     @Column
     private String name;
-
-    /** размеер файла не более 32Мб */
     @NonNull
     @Column
-    @Max(value = 32)
+    @Max(value = 32) // размер файла не более 32Мб
     private Byte size;
     @NonNull
     @Column(name = "document_format")

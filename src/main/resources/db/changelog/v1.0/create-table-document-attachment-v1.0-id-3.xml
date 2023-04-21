@@ -11,18 +11,18 @@
             CREATE SCHEMA IF NOT EXISTS company;
         </sql>
         
-        <createTable tableName="document_attachment">
-            <column name="id" type="uuid">
+        <createTable tableName="document_attachment" remarks="Приложение к документу">
+            <column name="id" type="uuid" remarks="Уникальный идентификатор">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="name" type="varchar(255)">
+            <column name="name" type="varchar(255)" remarks="Название файла">
                 <constraints nullable="false"/>
             </column>
-            <column name="size" type="tinyint">
+            <column name="size" type="tinyint" remarks="Размер файла">
                 <constraints nullable="false"/>
             </column>
-            <column name="document_format" type="varchar(255)"/>
-            <column name="document_type" type="varchar(255)"/>
+            <column name="document_format" type="varchar(255)" remarks="Формат документа"/>
+            <column name="document_type" type="varchar(255)" remarks="Тип документа"/>
         </createTable>
     </changeSet>
 </databaseChangeLog>
