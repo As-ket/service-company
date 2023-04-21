@@ -1,14 +1,12 @@
 package com.marketplace.companyservice.api.entity;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -22,6 +20,7 @@ import java.util.UUID;
 @Data
 public class SellerEntity {
     @Id
+    @GeneratedValue
     @Column
     @NonNull
     private UUID id;

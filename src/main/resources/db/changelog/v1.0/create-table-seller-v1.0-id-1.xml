@@ -12,20 +12,20 @@
             CREATE SCHEMA IF NOT EXISTS company;
         </sql>
 
-        <createTable tableName="seller">
+        <createTable tableName="seller" remarks="Информация о продавце">
             <column name="id" type="uuid">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="name" type="varchar(25)">
+            <column name="name" type="varchar(25)" remarks="Имя владельца магазина">
                 <constraints nullable="false"/>
             </column>
-            <column name="surname" type="varchar(50)">
+            <column name="surname" type="varchar(50)" remarks="Фамилия владельца магазина">
                 <constraints nullable="false"/>
             </column>
-            <column name="email"  type="varchar(25)">
+            <column name="email"  type="varchar(25)" remarks="Эл. почта">
                 <constraints nullable="false"/>
             </column>
-            <column name="registration_date" type="timestamp">
+            <column name="registration_date" type="timestamp" remarks="Дата регистрации на маркетплейсе">
                 <constraints nullable="false"/>
             </column>
         </createTable>
