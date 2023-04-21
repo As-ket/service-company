@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="2" author="EvgeniyPashkin">
+        <sql dbms="postgresql">
+            CREATE SCHEMA IF NOT EXISTS company;
+        </sql>
+        <createTable tableName="company_information" remarks="Информация о компании">
+            <column name="id" type="UUID">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)" remarks="Название магазина">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rating" type="NUMERIC(5,2)" remarks="Рейтинг"/>
+            <column name="main_category" type="VARCHAR(255)" remarks="Основная категория товаров">
+                <constraints nullable="false"/>
+            </column>
+            <column name="picture_id" type="UUID" remarks="Картинка-аватарка магазина"/>
+            <column name="legal_name" type="VARCHAR(255)" remarks="Юридическое название">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="VARCHAR(255)" remarks="Тип организации">
+                <constraints nullable="false"/>
+            </column>
+            <column name="inn" type="VARCHAR(255)" remarks="ИНН">
+                <constraints nullable="false"/>
+            </column>
+            <column name="is_active" type="BOOLEAN" value="true" remarks="Признак работы">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
