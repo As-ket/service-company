@@ -9,5 +9,5 @@ import java.util.UUID;
 /** Репозиторий для работы с document_attachment */
 public interface DocumentAttachmentRepository extends JpaRepository<DocumentAttachmentEntity,UUID> {
 
-    Optional<DocumentAttachmentEntity> findByDocumentName(String str);
+    Optional<DocumentAttachmentEntity> findByName(String str);
 }
