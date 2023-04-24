@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import javax.persistence.*;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -50,4 +51,8 @@ public class CompanyInformationEntity {
     @Column(name = "is_active")
     @NonNull
     private Boolean isActive;
+
+    @OneToMany
+    @JoinColumn(name="company_information_id")
+    private List<DocumentAttachmentEntity> documentAttachment;
 }

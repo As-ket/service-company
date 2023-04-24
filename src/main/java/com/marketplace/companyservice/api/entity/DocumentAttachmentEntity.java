@@ -18,7 +18,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "document_attachment", schema = "company")
 @AllArgsConstructor
-@NoArgsConstructor
+@NoArgsConstructor(force = true)
 @Data
 public class DocumentAttachmentEntity {
 
@@ -26,17 +26,21 @@ public class DocumentAttachmentEntity {
     @Column
     @GeneratedValue
     private UUID id;
+
     @NonNull
     @Column
     private String name;
+
     @NonNull
     @Column
     @Max(value = 32) // размер файла не более 32Мб
     private Byte size;
+
     @NonNull
     @Column(name = "document_format")
     @Enumerated(EnumType.STRING)
     private FormatDocEnum formatDocument;
+
     @Column(name = "document_type")
     @Enumerated(EnumType.STRING)
     private TypeDocEnum typeDocument;
