@@ -21,10 +21,10 @@ public class DocumentAttachmentRequestDto {
     @Schema(description = "Название документа", example = "Название.pdf")
     private String name;
     @NonNull
-    @Schema(type = "enum", description = "Тип документа", example = "Свидетельство ИНН")
+    @Schema(description = "Тип документа", example = "Свидетельство ИНН")
     private TypeDocEnum type;
     @NonNull
-    @Schema(type = "enum", description = "Формат документа", example = "pdf")
+    @Schema(description = "Формат документа", example = "pdf")
     private FormatDocEnum format;
     @NonNull
     @Schema(description = "Докуммент")
