@@ -16,7 +16,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "seller", schema = "company")
 @AllArgsConstructor
-@NoArgsConstructor
+@NoArgsConstructor(force = true)
 @Data
 public class SellerEntity {
     @Id
@@ -24,16 +24,24 @@ public class SellerEntity {
     @Column
     @NonNull
     private UUID id;
+
     @Column
     @NonNull
     private String name;
+
     @Column
     @NonNull
     private String surname;
+
     @Column
     @NonNull
     private String email;
+
     @Column(name = "registration_date")
     @NonNull
     private LocalDateTime registrationDate;
+
+    @OneToOne
+    @JoinColumn(name="company_information_id")
+    private CompanyInformationEntity companyInformation;
 }

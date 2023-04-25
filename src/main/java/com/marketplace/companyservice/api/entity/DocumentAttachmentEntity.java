@@ -18,7 +18,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "document_attachment", schema = "company")
 @AllArgsConstructor
-@NoArgsConstructor
+@NoArgsConstructor(force = true)
 @Data
 public class DocumentAttachmentEntity {
 
