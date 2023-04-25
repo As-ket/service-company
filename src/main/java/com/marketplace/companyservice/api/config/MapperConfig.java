@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 /** Конфигурация маппинга ДТО и сущностей */
 
 @Configuration
-public class MapperUtil {
+public class MapperConfig {
 
     @Bean
     public ModelMapper getMapper() {
