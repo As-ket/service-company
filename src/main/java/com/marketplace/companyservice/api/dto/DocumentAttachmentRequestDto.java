@@ -9,26 +9,25 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
-/** Дто запрос для сущности document_attachment */
+/** Дто вложение для документа */
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ApiModel(description = "Дто запрос для сущности приложения к документу", value = "DocumentDTO")
+@ApiModel(description = "Дто вложение для документа", value = "DocumentAttachmentDTO")
 public class DocumentAttachmentRequestDto {
 
     @NonNull
-    @Schema(description = "Название документа", example = "Название.pdf")
+    @Schema(description = "Название файла", example = "Название.pdf")
     private String name;
     @NonNull
-    @Schema(description = "Тип документа", example = "Свидетельство ИНН")
+    @Schema(description = "Тип файла", example = "Свидетельство ИНН")
     private TypeDocEnum type;
     @NonNull
-    @Schema(description = "Формат документа", example = "pdf")
+    @Schema(description = "Формат файла", example = "pdf")
     private FormatDocEnum format;
     @NonNull
-    @Schema(description = "Докуммент")
+    @Schema(description = "Файл")
     private Byte[] value;
-    @Schema(description = "Размер документа")
-    private  Integer size;
+
 }

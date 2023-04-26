@@ -1,43 +1,66 @@
 package com.marketplace.companyservice;
 
-import com.marketplace.companyservice.api.controller.DocumentAttachmentController;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.marketplace.companyservice.api.allEnums.FormatDocEnum;
+import com.marketplace.companyservice.api.allEnums.TypeDocEnum;
 import com.marketplace.companyservice.api.dto.DocumentAttachmentRequestDto;
-import com.marketplace.companyservice.api.service.DocumentAttachmentService;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-/** Тест для document_attachment контроллера*/
+/** Тест для document attachment контроллера */
 
 @SpringBootTest
+@AutoConfigureMockMvc
 class DocumentAttachmentTest {
 
-    @Mock
-    private DocumentAttachmentService service;
+    @Autowired
+    private MockMvc mvc;
 
     @Test
-    public void saveDocAttachTest() {
-        DocumentAttachmentRequestDto docFile = new DocumentAttachmentRequestDto();
-        docFile.setName("test.pdf");
-        docFile.setValue(new Byte[100]);
-        DocumentAttachmentController controller = new DocumentAttachmentController(service);
-        ResponseEntity<String> response = controller.saveDocAttach(docFile);
-        assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertEquals("The document is saved in the database", response.getBody());
+    public void saveDocAttachTest() throws Exception {
+        DocumentAttachmentRequestDto docFile = new DocumentAttachmentRequestDto("test.pdf", TypeDocEnum.INN,
+                FormatDocEnum.PDF, new Byte[100]);
+        mvc.perform(post("/company/document-attachment")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(mapToJson(docFile)))
+                .andExpect(status().isOk());
     }
 
     @Test
-    public void saveDocAttachInvalidFileTest() {
-        DocumentAttachmentRequestDto docFile = new DocumentAttachmentRequestDto();
-        docFile.setName("test.docx");
-        docFile.setValue(new Byte[40000000]);
-        DocumentAttachmentController controller = new DocumentAttachmentController(service);
-        ResponseEntity<String> response = controller.saveDocAttach(docFile);
-        assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
-        assertEquals("The file does not meet the required requirements", response.getBody());
+    public void saveDocAttachInvalidTypeTest() throws Exception {
+        DocumentAttachmentRequestDto docFile = new DocumentAttachmentRequestDto("test.docx", TypeDocEnum.INN,
+                FormatDocEnum.PDF, new Byte[100]);
+        mvc.perform(post("/company/document-attachment")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(mapToJson(docFile)))
+                .andExpect(status().isBadRequest())
+                .andExpect(content().string("Недопустимый тип файла."));
+    }
+
+    @Test
+    public void saveDocAttachInvalidSizeTest() throws Exception {
+        DocumentAttachmentRequestDto docFile = new DocumentAttachmentRequestDto("test.pdf", TypeDocEnum.INN,
+                FormatDocEnum.PDF, new Byte[40000000]);
+        mvc.perform(post("/company/document-attachment")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(mapToJson(docFile)))
+                .andExpect(status().isBadRequest())
+                .andExpect(content().string("Недопустимый размер файла."));
+    }
+
+    public static String mapToJson(final Object obj) {
+        try {
+            return new ObjectMapper().writeValueAsString(obj);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }
