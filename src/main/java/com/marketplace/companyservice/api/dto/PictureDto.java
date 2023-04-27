@@ -14,12 +14,12 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "Дто для добавления картинки-аватара магазина")
-public class PictureDTO {
+public class PictureDto {
 
-    @Schema(example = "123e4567-e89b-12d3-a456-426614174000", description = "Уникальный идентификатор картинки")
+    @Schema(description = "Уникальный идентификатор компании")
     private UUID id;
 
-    @Schema(example = "[10, 22, 12, 121, 23, 23...]", description = "Картинка-аватарка (массив байт))")
+    @Schema(description = "Картинка-аватарка (массив байт))")
     private Byte[] picture;
 
 }

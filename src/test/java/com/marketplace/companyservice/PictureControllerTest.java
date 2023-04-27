@@ -1,17 +1,16 @@
 package com.marketplace.companyservice;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.marketplace.companyservice.api.dto.PictureDTO;
-import com.marketplace.companyservice.api.service.PictureService;
+import com.marketplace.companyservice.api.dto.PictureDto;
+import com.marketplace.companyservice.api.entity.CompanyInformationEntity;
+import com.marketplace.companyservice.api.repository.CompanyRepository;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.UUID;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -23,17 +22,32 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 public class PictureControllerTest {
-    @Mock
-    private PictureService pictureService;
-    UUID myUUID = UUID.fromString("884a1aba-e14b-11ed-b5ea-0242ac120003");
+
+    @Autowired
+    CompanyRepository companyRepository;
 
     @Autowired
     private MockMvc mvc;
+
+    @Test
+    @Transactional
+    public void savePictureBeNoCorrect() throws Exception {
+        UUID myUUID = UUID.fromString("47850b37-85ad-43d0-9fec-c910229c0cf9");
+        PictureDto pictureDTO = new PictureDto(myUUID, new Byte[]{10, 12, 32, 15});
+        mvc.perform(post("/company/picture")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(mapToJson(pictureDTO)))
+                .andExpect(status().isBadRequest());
+    }
+
     @Test
     @Transactional
     public void savePictureBeCorrect() throws Exception {
-
-        PictureDTO pictureDTO = new PictureDTO(myUUID, new Byte[30]);
+        CompanyInformationEntity companyInformation =
+                new CompanyInformationEntity(null, "name", 10.1, "category",
+                        null, "dfdf", "dfdf", "12121", true, null);
+        companyRepository.save(companyInformation);
+        PictureDto pictureDTO = new PictureDto(companyInformation.getId(), new Byte[]{10, 12, 32, 15});
         mvc.perform(post("/company/picture")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(mapToJson(pictureDTO)))
