@@ -7,17 +7,17 @@
 
     <changeSet id="6" author="EvgeniyPashkin">
         <createTable tableName="picture">
-            <column name="id" type="UUID">
+            <column name="company_id" type="UUID">
                 <constraints primaryKey="true"/>
             </column>
             <column name="picture" type="BYTEA" remarks="Картинка-аватарка магазина"/>
         </createTable>
     </changeSet>
     <changeSet id="7" author="EvgeniyPashkin">
-        <addForeignKeyConstraint constraintName="fk_ci2ci"
+        <addForeignKeyConstraint constraintName="fk_company_information2picture"
                                  baseTableName="company_information"
                                  baseColumnNames="picture_id"
                                  referencedTableName="picture"
-                                 referencedColumnNames="id"/>
+                                 referencedColumnNames="company_id"/>
     </changeSet>
 </databaseChangeLog>

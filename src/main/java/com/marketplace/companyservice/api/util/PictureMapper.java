@@ -1,6 +1,6 @@
 package com.marketplace.companyservice.api.util;
 
-import com.marketplace.companyservice.api.dto.PictureDTO;
+import com.marketplace.companyservice.api.dto.PictureDto;
 import com.marketplace.companyservice.api.entity.PictureEntity;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -15,12 +15,12 @@ import org.springframework.stereotype.Service;
 public class PictureMapper {
 
     private final ModelMapper modelMapper;
-    public PictureDTO convertEntityToDto (PictureEntity pictureEntity) {
+    public PictureDto convertEntityToDto (PictureEntity pictureEntity) {
 
-        return modelMapper.map(pictureEntity, PictureDTO.class);
+        return modelMapper.map(pictureEntity, PictureDto.class);
     }
 
-    public PictureEntity convertDtoToEntity(PictureDTO pictureDTO) {
+    public PictureEntity convertDtoToEntity(PictureDto pictureDTO) {
 
         return modelMapper.map(pictureDTO, PictureEntity.class);
     }

@@ -3,7 +3,6 @@ package com.marketplace.companyservice.api.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
 import javax.persistence.*;
 import java.util.UUID;
@@ -18,12 +17,11 @@ import java.util.UUID;
 @AllArgsConstructor
 @Table(name = "picture", schema = "company")
 public class PictureEntity {
+
     @Id
-    @Column(name = "id")
-    @GeneratedValue
+    @Column(name = "company_id")
     private UUID id;
 
     @Column(name = "picture")
-    @NonNull
     private Byte[] picture;
 }
