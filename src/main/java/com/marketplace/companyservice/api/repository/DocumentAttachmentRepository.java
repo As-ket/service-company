@@ -5,7 +5,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;
 
-/** Репозиторий для работы с document_attachment */
+/**
+ * Репозиторий для работы с document_attachment
+ */
 public interface DocumentAttachmentRepository extends JpaRepository<DocumentAttachmentEntity,UUID> {
 
 }

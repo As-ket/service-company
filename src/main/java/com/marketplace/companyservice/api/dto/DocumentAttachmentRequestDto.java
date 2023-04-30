@@ -9,7 +9,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
-/** Дто вложение для документа */
+/**
+ * Дто вложение для документа
+ */
 
 @Data
 @AllArgsConstructor

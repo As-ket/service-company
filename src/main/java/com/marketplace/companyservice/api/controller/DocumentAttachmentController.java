@@ -8,7 +8,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
-/** Контроллер для работы с document_attachment */
+/**
+ *  Контроллер для работы с document_attachment
+ */
 
 @RestController
 @AllArgsConstructor

@@ -6,7 +6,9 @@ import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
-/** Реализация маппинга для DTO и сущности document_attachment */
+/**
+ * Реализация маппинга для DTO и сущности document_attachment
+ */
 
 @Service
 @AllArgsConstructor

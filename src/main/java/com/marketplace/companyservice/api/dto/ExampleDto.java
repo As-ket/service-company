@@ -11,7 +11,6 @@ import java.util.UUID;
 
 /**
  * ExampleDTO.
- *
  */
 @Data
 @Schema(description = "Объект для представления")

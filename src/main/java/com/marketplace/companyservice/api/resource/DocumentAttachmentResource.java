@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-/** Инкапсуляция аннотаций Swagger для контроллера */
+/**
+ * Инкапсуляция аннотаций Swagger для контроллера
+ */
 
 @RequestMapping(UrlConstants.MAIN_URL)
 @Tag(name = "Вложение для документа", description = "Операции с вложениями для документа")

@@ -10,7 +10,6 @@ import javax.validation.constraints.NotBlank;
 
 /**
  * ValidationFieldInfo.
- *
  */
 @Data
 @Builder(toBuilder = true)

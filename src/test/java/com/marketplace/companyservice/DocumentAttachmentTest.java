@@ -15,7 +15,9 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-/** Тест для document attachment контроллера */
+/**
+ * Тест для document attachment контроллера
+ */
 
 @SpringBootTest
 @AutoConfigureMockMvc

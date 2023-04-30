@@ -15,7 +15,6 @@ import java.util.Map;
 
 /**
  * ValidationError.
- *
  */
 @Data
 @Builder(toBuilder = true)
