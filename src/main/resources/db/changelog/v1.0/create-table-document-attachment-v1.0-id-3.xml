@@ -18,7 +18,7 @@
             <column name="name" type="varchar(255)" remarks="Название файла">
                 <constraints nullable="false"/>
             </column>
-            <column name="size" type="tinyint" remarks="Размер файла">
+            <column name="size" type="int" remarks="Размер файла">
                 <constraints nullable="false"/>
             </column>
             <column name="document_format" type="varchar(255)" remarks="Формат документа"/>

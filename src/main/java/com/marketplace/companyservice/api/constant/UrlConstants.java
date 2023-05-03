@@ -4,7 +4,6 @@ import lombok.experimental.UtilityClass;
 
 /**
  * Класс содержит константы для формирования url.
- *
  */
 @UtilityClass
 public class UrlConstants {
