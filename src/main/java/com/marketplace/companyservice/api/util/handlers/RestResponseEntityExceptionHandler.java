@@ -1,11 +1,6 @@
 package com.marketplace.companyservice.api.util.handlers;
 
-<<<<<<< HEAD
-import com.marketplace.companyservice.api.util.exceptions.InvalidSizeDocAttachException;
-import com.marketplace.companyservice.api.util.exceptions.InvalidTypeDocAttachException;
-=======
 import com.marketplace.companyservice.api.util.exceptions.CompanyNotFoundException;
->>>>>>> 445b073 (Внесены правки.)
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
