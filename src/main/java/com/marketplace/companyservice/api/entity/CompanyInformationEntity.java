@@ -33,8 +33,9 @@ public class CompanyInformationEntity {
     @NonNull
     private String mainCategory;
 
-    @Column(name = "picture_id")
-    private UUID pictureId;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="id", columnDefinition = "company_id")
+    private PictureEntity picture;
 
     @Column(name = "legal_name")
     @NonNull
