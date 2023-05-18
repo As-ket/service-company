@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 /**
- * Сущность  продовца.
+ * Сущность  продавца.
  */
 @Entity
 @Table(name = "seller", schema = "company")
