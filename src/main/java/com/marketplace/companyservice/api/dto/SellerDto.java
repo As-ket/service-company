@@ -19,12 +19,15 @@ public class SellerDto {
     @Schema(example = "Иван", description = "Имя владельца магазина")
     @NotNull(message = "account.dto.validate.accountNumber.isEmpty")
     private String name;
+
     @Schema(example = "Иванов", description = "Фамилия владельца магазина")
     @NotNull(message = "account.dto.validate.accountNumber.isEmpty")
     private String surname;
+
     @Schema(example = "ivan@mail.ru", description = "Электронная почта владельца магазина")
     @NotNull(message = "account.dto.validate.accountNumber.isEmpty")
     private String email;
+
     @Schema(example = "Пароль", description = "Пароль владельца магазина")
     @NotNull(message = "account.dto.validate.accountNumber.isEmpty")
     private String password;

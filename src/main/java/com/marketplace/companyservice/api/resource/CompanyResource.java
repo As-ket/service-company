@@ -28,15 +28,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 )
 @RequestMapping(UrlConstants.MAIN_URL)
 public interface CompanyResource {
-        @PostMapping("")
-        @Operation(summary = "Регистрация компании", tags = {"Компания"})
-        @ApiResponses(value = {
-                @ApiResponse(responseCode = "200", description = "Компания зарегистрирована",
-                        content = { @Content(mediaType = "application/json",
-                                schema = @Schema(implementation = String.class)) }),
-                @ApiResponse(responseCode = "400", description = "Неверный ИНН/Имя или ИНН уже заняты",
-                        content = { @Content(mediaType = "application/json",
-                                schema = @Schema(implementation = String.class)) })
-        })
-        ResponseEntity<String> regCompany(@Parameter(description = "Регистрационные данные компании") @RequestBody RegCompanyDto regDto);
+
+    @PostMapping("")
+    @Operation(summary = "Регистрация компании", tags = {"Компания"})
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Компания зарегистрирована",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = String.class))}),
+            @ApiResponse(responseCode = "400", description = "Неверный ИНН/Имя или ИНН уже заняты",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = String.class))})
+    })
+    ResponseEntity<String> regCompany(@Parameter(description = "Регистрационные данные компании") @RequestBody RegCompanyDto regDto);
 }

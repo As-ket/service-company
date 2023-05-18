@@ -21,11 +21,11 @@ public class CompanyService {
 
     private final CompanyRepository companyRepository;
     private final RegCompanyMapper mapper;
-    
+
     @Transactional
     public void register(RegCompanyDto regDto) throws RuntimeException {
         if (isValidInn(regDto)) {
-            if (! (existsByInn(regDto) || existsByCompanyName(regDto))) {
+            if (!(existsByInn(regDto) || existsByCompanyName(regDto))) {
                 CompanyInformationEntity company = mapper.convertDtoToEntity(regDto);
                 company.setIsActive(true);
                 companyRepository.save(company);
@@ -37,18 +37,17 @@ public class CompanyService {
         }
 
     }
-    
+
     public boolean existsByCompanyName(RegCompanyDto regDto) {
         return companyRepository.existsByName(regDto.getName());
     }
-    
+
     public boolean existsByInn(RegCompanyDto regDto) {
         return companyRepository.existsByInn(regDto.getInn());
     }
-    
+
     public boolean isValidInn(RegCompanyDto regDto) {
         return regDto.getInn().length() == 10;
     }
-    
-    
+
 }

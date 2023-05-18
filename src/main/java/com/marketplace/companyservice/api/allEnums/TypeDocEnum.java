@@ -1,6 +1,7 @@
 package com.marketplace.companyservice.api.allEnums;
 
 public enum TypeDocEnum {
+
     OGRNIP("Свидетельство ОГРНИП"),
     INN("Свидетельство ИНН"),
     PASSPORT("Копия паспорта");

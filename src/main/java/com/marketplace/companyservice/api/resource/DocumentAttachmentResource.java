@@ -25,7 +25,7 @@ public interface DocumentAttachmentResource {
     @Operation(summary = "Добавление вложения для документа в бд", tags = "Вложение для документа")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Вложение сохранено",
-            content = {@Content(mediaType = "application/json", schema = @Schema(implementation = String.class))}),
+                    content = {@Content(mediaType = "application/json", schema = @Schema(implementation = String.class))}),
             @ApiResponse(responseCode = "401", description = "Для действий на странице необходимо зарегистрироваться"),
             @ApiResponse(responseCode = "403", description = "Доступ запрещен"),
             @ApiResponse(responseCode = "404", description = "Страница не найдена")

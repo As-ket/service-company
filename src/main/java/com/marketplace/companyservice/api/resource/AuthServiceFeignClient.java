@@ -15,6 +15,7 @@ import javax.annotation.Resource;
 @Resource
 @FeignClient(name = "auth-service", url = "http://localhost:8080")
 public interface AuthServiceFeignClient {
-        @PostMapping(value = "/api/auth/sign-in")
-        ResponseEntity<String> signIn(@RequestBody AuthSellerDto seller);
+
+    @PostMapping(value = "/api/auth/sign-in")
+    ResponseEntity<String> signIn(@RequestBody AuthSellerDto seller);
 }

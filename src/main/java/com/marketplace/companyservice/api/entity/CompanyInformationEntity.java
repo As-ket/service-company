@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.UUID;
@@ -17,6 +18,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @Table(name = "company_information", schema = "company")
 public class CompanyInformationEntity {
+
     @Id
     @Column(name = "id")
     @GeneratedValue
@@ -34,7 +36,7 @@ public class CompanyInformationEntity {
     private String mainCategory;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="id", columnDefinition = "company_id")
+    @JoinColumn(name = "id", columnDefinition = "company_id")
     private PictureEntity picture;
 
     @Column(name = "legal_name")
@@ -54,6 +56,6 @@ public class CompanyInformationEntity {
     private Boolean isActive;
 
     @OneToMany
-    @JoinColumn(name="company_information_id")
+    @JoinColumn(name = "company_information_id")
     private List<DocumentAttachmentEntity> documentAttachment;
 }

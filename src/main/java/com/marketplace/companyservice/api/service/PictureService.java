@@ -25,10 +25,10 @@ public class PictureService {
     @Transactional
     public void savePicture(PictureDto picture) {
         PictureEntity pictureEntity = pictureMapper.convertDtoToEntity(picture);
-        if (! companyRepository.findById(picture.getId()).isEmpty()) {
+        if (companyRepository.findById(picture.getId()).isPresent()) {
             pictureRepository.save(pictureEntity);
         } else {
-            throw new CompanyNotFoundException("Компания с ID "+ picture.getId() + " не найдена.");
+            throw new CompanyNotFoundException("Компания с ID " + picture.getId() + " не найдена.");
         }
 
     }

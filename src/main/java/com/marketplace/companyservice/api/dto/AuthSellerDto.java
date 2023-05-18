@@ -20,9 +20,11 @@ public class AuthSellerDto {
     @Schema(example = "ivan@mail.ru", description = "Электронная почта владельца магазина")
     @NotNull(message = "account.dto.validate.accountNumber.isEmpty")
     private String username;
+
     @Schema(example = "ivan@mail.ru", description = "Электронная почта владельца магазина")
     @NotNull(message = "account.dto.validate.accountNumber.isEmpty")
     private String password;
+
     @Schema(example = "ivan@mail.ru", description = "Роль владельца магазина")
     @NotNull(message = "account.dto.validate.accountNumber.isEmpty")
     private String role;

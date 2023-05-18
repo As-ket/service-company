@@ -7,6 +7,7 @@ import com.marketplace.companyservice.api.util.SellerMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.time.LocalDateTime;
 
 /**
@@ -21,7 +22,7 @@ public class SellerService {
 
     @Transactional
     public void saveSeller(SellerDto seller) {
-        SellerEntity sellerEntity =  sellerMapper.convertToEntity(seller);
+        SellerEntity sellerEntity = sellerMapper.convertToEntity(seller);
         sellerEntity.setRegistrationDate(LocalDateTime.now());
         sellerRepository.save(sellerEntity);
     }

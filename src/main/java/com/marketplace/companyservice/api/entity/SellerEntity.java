@@ -42,6 +42,6 @@ public class SellerEntity {
     private LocalDateTime registrationDate;
 
     @OneToOne
-    @JoinColumn(name="company_information_id")
+    @JoinColumn(name = "company_information_id")
     private CompanyInformationEntity companyInformation;
 }

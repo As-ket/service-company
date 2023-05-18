@@ -17,18 +17,23 @@ import lombok.NonNull;
 @NoArgsConstructor
 @ApiModel(description = "Дто для регистрации", value = "RegCompanyDTO")
 public class RegCompanyDto {
+
     @NonNull
     @Schema(description = "Название компании", example = "Рога и копыта")
     private String name;
+
     @NonNull
     @Schema(description = "Основная категория товаров", example = "Тепло и уют")
     private String mainCategory;
+
     @NonNull
     @Schema(description = "Полное название компании", example = "ООО \"Рога и копыта\"")
     private String legalName;
+
     @NonNull
     @Schema(description = "Тип компании", example = "ООО")
     private String type;
+
     @NonNull
     @Schema(description = "юр. ИНН 10 цифр", example = "1234567890")
     private String inn;

@@ -39,7 +39,7 @@ public class SellerController implements SellerResource {
             sellerService.saveSeller(seller);
             return ResponseEntity.ok("Информация о продавце успешно добавлена в базу!");
 
-        } catch (SellerAuthException e){
+        } catch (SellerAuthException e) {
             log.error("Информация о продавце не может быть сохранена: {}, статус: {}", e.getStackTrace(), e.status());
             return new ResponseEntity<>("Информация о продавце не может быть сохранена", HttpStatus.BAD_REQUEST);
         }

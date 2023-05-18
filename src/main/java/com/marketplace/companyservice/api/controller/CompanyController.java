@@ -4,8 +4,6 @@ package com.marketplace.companyservice.api.controller;
 import com.marketplace.companyservice.api.dto.RegCompanyDto;
 import com.marketplace.companyservice.api.resource.CompanyResource;
 import com.marketplace.companyservice.api.service.CompanyService;
-import com.marketplace.companyservice.api.util.exceptions.CompanyAlreadyExistException;
-import com.marketplace.companyservice.api.util.exceptions.InnNotValidException;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,11 +19,7 @@ public class CompanyController implements CompanyResource {
     
     @Override
     public ResponseEntity<String> regCompany(RegCompanyDto regDto) {
-        try {
-            companyService.register(regDto);
-            return new ResponseEntity<>("Компания успешно зарегистрирована", HttpStatus.OK);
-        } catch (RuntimeException e) {
-            throw e;
-        }
+        companyService.register(regDto);
+        return new ResponseEntity<>("Компания успешно зарегистрирована", HttpStatus.OK);
     }
 }

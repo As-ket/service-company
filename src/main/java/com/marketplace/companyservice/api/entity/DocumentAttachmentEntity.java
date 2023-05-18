@@ -26,20 +26,25 @@ public class DocumentAttachmentEntity {
     @Column
     @GeneratedValue
     private UUID id;
+
     @NonNull
     @Column
     private Byte[] value;
+
     @NonNull
     @Column
     private String name;
+
     @NonNull
     @Column
     @Max(value = 33554432) // размер файла не более 32Мб
     private Integer size;
+
     @NonNull
     @Column(name = "document_format")
     @Enumerated(EnumType.STRING)
     private FormatDocEnum formatDocument;
+
     @Column(name = "document_type")
     @Enumerated(EnumType.STRING)
     private TypeDocEnum typeDocument;

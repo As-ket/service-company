@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- *  Контроллер для работы с document_attachment
+ * Контроллер для работы с document_attachment
  */
 
 @RestController
@@ -26,8 +26,8 @@ public class DocumentAttachmentController implements DocumentAttachmentResource 
             log.info("Файл \"" + docFile.getName() + "\" сохранён в базе данных.");
             return ResponseEntity.ok("The document attachment is saved in the database");
         } catch (Exception ex) {
-            log.error("Не удалось сохранить документ в базе данных. Message: {}. StackTrace: {}", ex.getMessage(),
-                    ex.getStackTrace());
+            log.error("Не удалось сохранить документ в базе данных. Message: {}. StackTrace: {}",
+                    ex.getMessage(), ex.getStackTrace());
             throw ex;
         }
 
