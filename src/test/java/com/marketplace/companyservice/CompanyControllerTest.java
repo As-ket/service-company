@@ -40,7 +40,7 @@ public class CompanyControllerTest {
     
     @Test
     public void whenInnOccupied() throws Exception {
-    
+
         RegCompanyDto regDto = getRegCompanyDto();
         when(companyService.isValidInn(regDto)).thenReturn(true);
         when(companyService.existsByInn(regDto)).thenReturn(true);
@@ -88,7 +88,8 @@ public class CompanyControllerTest {
             throw new RuntimeException(e);
         }
     }
-    
+
+
     public static RegCompanyDto getRegCompanyDto(){
         RegCompanyDto regDto = new RegCompanyDto();
         regDto.setName("Рога и копыта");

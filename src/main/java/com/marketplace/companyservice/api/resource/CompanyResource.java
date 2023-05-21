@@ -3,6 +3,7 @@ package com.marketplace.companyservice.api.resource;
 
 import com.marketplace.companyservice.api.constant.UrlConstants;
 import com.marketplace.companyservice.api.dto.RegCompanyDto;
+import com.marketplace.companyservice.api.dto.UpdateCompanyDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -12,9 +13,11 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.tags.Tags;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import java.util.UUID;
 
 
 /**
@@ -40,4 +43,13 @@ public interface CompanyResource {
                             schema = @Schema(implementation = String.class))})
     })
     ResponseEntity<String> regCompany(@Parameter(description = "Регистрационные данные компании") @RequestBody RegCompanyDto regDto);
+
+    @PutMapping("/{id}")
+    @Operation(summary = "Изменение данных компании", tags = {"Компания"})
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Данные компании обновленны"),
+            @ApiResponse(responseCode = "400", description = "Данные компании не были обновленны", content = @Content)
+    })
+    ResponseEntity<String> updateCompany(@RequestBody @Valid UpdateCompanyDto updateCompanyDto,
+                                         BindingResult bindingResult, @PathVariable UUID id);
 }
