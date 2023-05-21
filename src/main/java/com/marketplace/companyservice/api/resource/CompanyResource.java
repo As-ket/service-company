@@ -48,7 +48,7 @@ public interface CompanyResource {
     @Operation(summary = "Изменение данных компании", tags = {"Компания"})
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Данные компании обновленны"),
-            @ApiResponse(responseCode = "400", description = "Данные компании не были обновленны", content = @Content)
+            @ApiResponse(responseCode = "400", description = "Данные компании не были обновленны")
     })
     ResponseEntity<String> updateCompany(@RequestBody @Valid UpdateCompanyDto updateCompanyDto,
                                          BindingResult bindingResult, @PathVariable UUID id);

@@ -35,7 +35,7 @@ public class CompanyController implements CompanyResource {
             String errorMessages = bindingResult.getFieldErrors().stream()
                     .map(DefaultMessageSourceResolvable::getDefaultMessage)
                     .collect(Collectors.joining(", ")); //для получения строки с сообщениями об ощибке из аннотаций
-            log.info(errorMessages);
+            log.warn("Данные компании не были обновлены \n" + errorMessages);
             return new ResponseEntity<>("Данные компании не были обновлены \n" + errorMessages, HttpStatus.BAD_REQUEST);
         }
         try {

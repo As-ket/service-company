@@ -23,7 +23,6 @@ import java.util.UUID;
 public class UpdateCompanyDto {
 
     @ApiModelProperty(hidden = true) //чтобы в свагере в example не появилось поле id
-    @NonNull
     private UUID id;
 
     @NonNull
