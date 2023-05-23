@@ -9,16 +9,17 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import javax.validation.Valid;
+import java.util.UUID;
 
 /**
- * Ресурс для контролллера, добавляющего карнтинку-аватарку магазина
+ * Ресурс для контролллера, реализующий действия с картинкой-аватаром магазина
+ *
  */
 
 @RequestMapping(UrlConstants.MAIN_URL)
-@Tag(name = "Картинка-аватарка", description = "Добавление картинки-аватарки магазина")
+@Tag(name = "Картинка-аватарка", description = "Добавление/изменение картинки-аватарки магазина")
 public interface PictureResource {
     @PostMapping(value = "/picture")
     @Operation(summary = "Добавление картинки", tags = "Картинка-аватарка")
@@ -37,4 +38,17 @@ public interface PictureResource {
                             schema = @Schema(implementation = String.class))})
     })
     ResponseEntity<String> savePicture(@RequestBody PictureDto picture);
+
+    @PutMapping("/picture/{id}")
+    @Operation(summary = "Изменить картинку компании", tags = "Картинка-аватарка")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Картинка обновлена",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = String.class))}),
+            @ApiResponse(responseCode = "400", description = "Не удалось обновить картинку",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = String.class))})
+    })
+    ResponseEntity<String> updatePictureById(@RequestBody @Valid PictureDto pictureDto, @PathVariable UUID id);
 }
+

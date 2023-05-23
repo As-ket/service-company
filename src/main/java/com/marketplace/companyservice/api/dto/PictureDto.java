@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 import java.util.UUID;
 
@@ -19,6 +20,7 @@ public class PictureDto {
     @Schema(description = "Уникальный идентификатор компании")
     private UUID id;
 
+    @NonNull
     @Schema(description = "Картинка-аватарка (массив байт))")
     private Byte[] picture;
 

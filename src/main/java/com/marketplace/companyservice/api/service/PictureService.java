@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * Сервис, реализующий добавление картинки-аватарки магазина
+ * Сервис, реализующий действия с картинкой-аватаром магазина
  */
 
 @Service
@@ -30,7 +30,15 @@ public class PictureService {
         } else {
             throw new CompanyNotFoundException("Компания с ID " + picture.getId() + " не найдена.");
         }
-
     }
 
+    @Transactional
+    public void updatePicture(PictureDto picture) {
+        if (companyRepository.findById(picture.getId()).isEmpty()) {
+            throw new CompanyNotFoundException(String.format("Компания с id %s не найдена.", picture.getId()));
+        } else {
+            PictureEntity pictureEntity = pictureMapper.convertDtoToEntity(picture);
+            pictureRepository.save(pictureEntity);
+        }
+    }
 }

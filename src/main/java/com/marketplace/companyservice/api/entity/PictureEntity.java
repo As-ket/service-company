@@ -3,6 +3,7 @@ package com.marketplace.companyservice.api.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 import javax.persistence.*;
 import java.util.UUID;
@@ -22,6 +23,7 @@ public class PictureEntity {
     @Column(name = "company_id")
     private UUID id;
 
+    @NonNull
     @Column(name = "picture")
     private Byte[] picture;
 }
